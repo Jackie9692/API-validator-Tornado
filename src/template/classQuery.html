@@ -1,0 +1,50 @@
+{% extends "main.html" %}
+
+{% block title %}
+    Class检索
+{% end %}
+
+
+{% block body %}
+<div style="margin-bottom: 0 20px 20px 20px" width="100%">
+	<p>类列表</p>
+	<div id="resultDiv" style="height: 400px">
+		<table class="table table-striped" style="background-color: white">
+			<thead>
+				<tr>
+					<td>类名</td>
+				</tr>
+			</thead>
+			<tbody>				
+	        	{% for each in classList %}
+					<tr>
+						<td>{{ each.name }}</td>
+		        		<td>
+		        			<a class="bth bth-default" href="/class/delete?id={{each.name}}">删除</a>
+		        			<!-- <a class="bth bth-default" href="/api/edit?id={{each.name}}">编辑</a> -->
+		        			<!-- <a class="bth bth-default" href="/api/detail?id={{each.name}}">详情</a> -->
+		        		</td>									        		
+	        		</tr>
+	        	{% end %}
+			</tbody>
+		</table>
+	</div>
+	
+	<p>Class录入</p>
+		<form id="registerForm" class="form-horizontal" action="/class/create" method="post">		  
+		  <div class="form-group">
+		    <label for="" class="col-sm-2 control-label">类名</label>
+		    <div class="col-sm-6">
+		      <input type="" class="form-control" name="id" placeholder="">
+		    </div>
+		  </div>		  
+		  <div class="form-group">
+		  	<div class="container">
+		    <div class="col-sm-offset-2 col-sm-8">
+				<button type = "submit" id="registerSaveA" class="btn btn-primary">确认添加</button>
+				<a id="registerCancleA" class="btn btn-primary">取消</a>
+		    </div>
+		  </div>
+		</form>        
+</div>
+{% end %}

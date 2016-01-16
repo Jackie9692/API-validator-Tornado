@@ -1,0 +1,113 @@
+{% extends "main.html" %}
+
+{% block title %}
+    API详情
+{% end %}
+
+
+{% block body %}
+    <div style="margin: 0 auto; width: 520px">
+        <p>API详情查看</p>
+		<form id="registerForm" class="form-horizontal" action="/api/registerSave" method="post">
+		  <div class="form-group">
+		    <label for="" class="col-sm-2 control-label">所属工程</label>
+			    <div class="col-sm-5">
+					<input type="" class="form-control" name="ProjectName" readonly value={{apiDetail.project_code}}>
+			    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="" class="col-sm-2 control-label">所属模块</label>
+		    <div class="col-sm-5">
+				<input type="" class="form-control" name="methodName" readonly value={{apiDetail.module_code}}>
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="" class="col-sm-2 control-label">所属类</label>
+		    <div class="col-sm-5">
+				<input type="" class="form-control" name="className" readonly value={{apiDetail.class_code}}>
+		    </div>
+		  </div>
+
+		  <div class="form-group">
+		    <label for="" class="col-sm-2 control-label">接口名</label>
+		    <div class="col-sm-5">
+		      <input type="" class="form-control" name="methodName" readonly value={{apiDetail.method_name}}>
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="" class="col-sm-2 control-label">rest接口</label>
+		    <div class="col-sm-5">
+		      <input type="" class="form-control" name="restMethodName" readonly value={{apiDetail.rest_method_name}}>
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="" class="col-sm-2 control-label">请求方式</label>
+		    <div class="col-sm-3">
+		     	<input type="" class="form-control" name="" readonly value={{apiDetail.visit_method_way}}>
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="" class="col-sm-2 control-label">参数及说明</label>
+		    <div class="col-sm-6">
+		      <textarea class="form-control" rows="4" placeholder="" readonly name="paraDescription">{{apiDetail.paras_detail}}</textarea>
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="" class="col-sm-2 control-label">调用示例</label>
+		    <div class="col-sm-10">
+		    	<textarea class="form-control" rows="6" placeholder="请输入调用示例" readonly name="invokeExample">{{apiDetail.invoke_example}}</textarea>
+		    </div>
+		  </div>		  
+		  <div class="form-group">
+		    <label for="" class="col-sm-2 control-label">返回字段</label>
+		    <div class="col-sm-6">
+		      <textarea class="form-control" rows="2" placeholder="" readonly name="returnSegment">{{apiDetail.return_segments}}</textarea>
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="" class="col-sm-2 control-label">返回说明</label>
+		    <div class="col-sm-6">
+		      <textarea class="form-control" rows="2" placeholder="" readonly name="returnDescription">{{apiDetail.return_description}}</textarea>
+		    </div>
+		  </div>		  
+		  <div class="form-group">
+		    <label for="" class="col-sm-2 control-label">是否启用</label>
+		    <div class="col-sm-10">
+				<input type="" class="form-control" name="" readonly value={{apiDetail.work_status}}>	
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="" class="col-sm-2 control-label">返回格式</label>
+		    <div class="col-sm-3">
+				<input type="" class="form-control" name="" readonly value={{apiDetail.return_format}}>	
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="" class="col-sm-2 control-label">返回示例</label>
+		    <div class="col-sm-10">
+		      <textarea class="form-control" rows="6" placeholder="" readonly name="returnExample">{{apiDetail.return_example}}</textarea>
+		    </div>
+		  </div>		  		  
+		  <div class="form-group">
+		    <label for="" class="col-sm-2 control-label">是否测试</label>
+		    <div class="col-sm-10">
+				<input type="" class="form-control" name="" readonly value={{apiDetail.test_status}}>	
+		    </div>
+		  </div>		  
+		  <div class="form-group">
+		    <label for="" class="col-sm-2 control-label">API负责人</label>
+		    <div class="col-sm-6">
+		      <input type="" class="form-control" name="responser" placeholder="" readonly value={{apiDetail.owner}}>
+		    </div>
+		  </div>		  
+		  <div class="form-group">
+		  	<div class="container">
+		    <div class="col-sm-offset-2 col-sm-8">
+			    <div class="row">
+			    	<a href="/api/query" class="btn btn-primary">返回</a>
+			    </div>
+		    </div>
+		  </div>
+		</form>        
+     </div>
+{% end %}

@@ -1,0 +1,45 @@
+{% extends "main.html" %}
+
+{% block title %}
+    Project详情
+{% end %}
+
+
+{% block body %}
+    <div style="margin: 0 auto; width: 520px">
+        <p>Project详情查看</p>
+		<form id="registerForm" class="form-horizontal" action="/api/registerSave" method="post">
+		  <div class="form-group">
+		    <label for="" class="col-sm-2 control-label">工程名</label>
+			    <div class="col-sm-5">
+					<input type="" class="form-control" name="" readonly value={{projectDetail.name}}>
+			    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="" class="col-sm-2 control-label">工程代码</label>
+		    <div class="col-sm-5">
+				<input type="" class="form-control" name="" readonly value={{projectDetail.code}}>
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="" class="col-sm-2 control-label">工程上下文</label>
+		    <div class="col-sm-5">
+				<input type="" class="form-control" name="" readonly value={{projectDetail.context}}>
+		    </div>
+		  </div>
+
+		  <div class="form-group">
+		    <label for="" class="col-sm-2 control-label">生产环境地址</label>
+		    <div class="col-sm-5">
+		      <input type="" class="form-control" name="" readonly value={{projectDetail.pro_env_code}}>
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="" class="col-sm-2 control-label">测试环境地址</label>
+		    <div class="col-sm-5">
+		      <input type="" class="form-control" name="restMethodName" readonly value={{projectDetail.test_env_code}}>
+		    </div>
+		  </div>
+		</form>        
+     </div>
+{% end %}

@@ -1,0 +1,60 @@
+{% extends "main.html" %}
+
+{% block title %}
+   Project检索
+{% end %}
+
+
+{% block body %}
+<div style="margin-bottom: 0 20px 20px 20px" width="100%">
+	<p>工程列表</p>
+	<a class="bth bth-default" href="/project/create">添加</a>
+	<div id="resultDiv" style="height: 400px">
+		<table class="table table-striped" style="background-color: white">
+			<thead>
+				<tr>
+					<td>工程名</td>
+					<td>工程代码</td>
+					<td>工程上下文</td>
+					<td>生产环境地址</td>
+					<td>测试环境地址</td>
+				</tr>
+			</thead>
+			<tbody>				
+	        	{% for each in projectList %}
+					<tr>
+						<td>{{ each.name }}</td>
+						<td>{{ each.code }}</td>
+						<td>{{ each.context }}</td>
+						<td>{{ each.pro_env_code }}</td>
+						<td>{{ each.test_env_code }}</td>
+		        		<td>
+		        			<a class="bth bth-default" href="/project/delete?id={{each.code}}">删除</a>
+		        			<a class="bth bth-default" href="/project/edit?id={{each.code}}">编辑</a>
+		        			<a class="bth bth-default" href="/project/detail?id={{each.code}}">详情</a>
+		        		</td>									        		
+	        		</tr>
+	        	{% end %}
+			</tbody>
+		</table>
+	</div>
+	
+	
+	<!-- <p>Class录入</p>
+		<form id="registerForm" class="form-horizontal" action="/class/create" method="post">		  
+		  <div class="form-group">
+		    <label for="" class="col-sm-2 control-label">类名</label>
+		    <div class="col-sm-6">
+		      <input type="" class="form-control" name="id" placeholder="">
+		    </div>
+		  </div>		  
+		  <div class="form-group">
+		  	<div class="container">
+		    <div class="col-sm-offset-2 col-sm-8">
+				<button type = "submit" id="registerSaveA" class="btn btn-primary">确认添加</button>
+				<a id="registerCancleA" class="btn btn-primary">取消</a>
+		    </div>
+		  </div>
+		</form>         -->
+</div>
+{% end %}

@@ -1,0 +1,124 @@
+{% extends "main.html" %}
+
+{% block title %}
+    API检索
+{% end %}
+
+
+{% block body %}
+<div style="margin-bottom: 0 20px 20px 20px" width="100%">
+	<p>API查询列表</p>
+	<form class="form-inline" method="post" action="/api/query">
+		<div class="form-group col-sm-4">
+	    	<label for="">所属工程</label>
+			<select name="projectName" class="form-control" title="如不存在工程，请先构建工程">
+		        {% for each in projectCodeList %}
+		        	<option>{{ each.code }}</option>
+		        {% end %}					
+			</select>
+		</div>
+	    <div class="form-group col-sm-4">
+	    	<label for="" >所属模块</label>
+			<select name="moduleName" class="form-control" title="如不存在工程，请先创建模块">
+	           	{% for each in moduleCodeList %}
+	           		<option>{{ each.code }}</option>
+	           	{% end %}				
+			</select>
+	    </div>
+	    <div class="form-group col-sm-4">
+	    	<label>所属类</label>
+			<select name="className" class="form-control">
+	        	{% for each in classDetailCodeList %}
+	        		<option>{{ each.name }}</option>
+	        	{% end %}				
+			</select>
+	  	</div>
+
+	  	<div class="form-group col-sm-6">
+		    <label>接口名</label>
+		    <input type="" class="form-control" name="methodName" placeholder="模糊匹配">
+		</div>
+		<div class="form-group col-sm-6">
+		  	<label >rest接口</label>
+	  	  	<input type="" class="form-control" name="restMethodName" placeholder="模糊匹配">
+		</div>
+		  
+		<div class="form-group col-sm-4">
+		  	<label>请求方式</label>
+	   		<select class="form-control" name="requestWay">
+	   			<option>不限</option>
+	          	<option>GET</option>
+	          	<option>POST</option>		
+	    	</select>
+		</div>
+	  
+	  	<div class="form-group col-sm-4">
+		    <label>返回格式</label>
+	     	<select class="form-control" name="retrunFormat">
+	     		<option>不限</option>
+	            <option>XML</option>
+	            <option>JSON</option>
+			</select>
+		</div>
+	  
+	  <button type="submit" class="btn btn-default">查询</button>
+	</form> 
+	<div id="resultDiv" style="height: 400px">
+		<table class="table table-striped" style="background-color: white">
+			<thead>
+				<tr>
+					<td>id</td>
+					<td>所属工程</td>
+		  			<td>所属模块</td>
+		  			<td>所在类</td>
+		  			<td>接口名</td>
+		  			<td>rest接口</td>
+		  			<td>访问方式</td>
+		  			<td>是否启用</td>
+		  			<td>是否测试</td>
+		  			<td>操作</td>
+				</tr>
+			</thead>
+			<tbody>				
+	        	{% for each in apiMatchedList %}
+					<tr>
+						<td>{{ each.id }}</td>
+		        		<td>{{ each.project_code }}</td>
+		        		<td>{{ each.module_code }}</td>
+		        		<td>{{ each.class_code }}</td>
+		        		<td>{{ each.method_name }}</td>
+		        		<td>{{ each.rest_method_name }}</td>
+		        		<td>{{ each.visit_method_way }}</td>
+		        		<td>
+		        			{% if each.work_status == '1' %}
+		        				启用
+		        			{% else %}
+		        				不启用
+		        			{% end %}		        			
+		        		</td>
+		        		<td>
+		        			{% if each.test_status == '1' %}
+		        				测试
+		        			{% else %}
+		        				不测试
+		        			{% end %}		        			
+		        		</td>
+		        		<td>
+		        			<a class="bth bth-default" href="/api/remove?id={{each.id}}">删除</a>
+		        			<a class="bth bth-default" href="/api/edit?id={{each.id}}">编辑</a>
+		        			<a class="bth bth-default" href="/api/detail?id={{each.id}}">详情</a>
+		        		</td>		        		
+	        		</tr>
+	        	{% end %}
+			</tbody>
+  			
+
+		</table>
+	</div>
+</div>
+	
+
+
+
+  <!--  <script src="{{ static_url("js/register.js") }}"></script> -->
+{% end %}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<link rel="stylesheet" href="{{ static_url("bootstrap-3.3.4-dist/css/bootstrap.min.css")}}">
+    	<script type="text/javascript" src="{{ static_url("jquery-1.9.1.min.js")}}"></script>
+    	<script type="text/javascript" src="{{ static_url("bootstrap-3.3.4-dist/js/bootstrap.min.js")}}"></script>
+        <title>{% block title %}title{% end %}</title>
+    </head>
+	<body style="background-color: #fff">
+	    <div id="container" style="margin: 0 auto; width: 80%; background-color: #FFF5F5">
+	        <header style="margin-left: 20%; margin-bottom: 20px">
+				<nav>
+					<ul class="nav nav-tabs">
+						<li role="presentation" class="dropdown">
+						    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+						      API模块 <span class="caret"></span>
+						    </a>
+						    <ul class="dropdown-menu" role="menu">
+						    	<li><a href="/api/register">API录入</a></li>
+						    	<li><a href="/api/query">API查询与维护</a></li>
+						    </ul>
+						</li>					
+						<li role="presentation" class="dropdown">
+						    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+						      数据表维护 <span class="caret"></span>
+						    </a>
+						    <ul class="dropdown-menu" role="menu">
+						    	<li><a href="/class/query">类查询与维护</a></li>
+						    	<li><a href="/project/query">工程查询与维护</a></li>
+						    	<li><a href="/module/query">模块查询与维护</a></li>
+						    	<li><a href="/environment/query">环境查询与维护</a></li>
+						    </ul>
+						</li>	
+					</ul>
+				</nav>	        
+	        </header>
+	        
+	        <div id="main">
+	            <div id="content">
+	                {% block body %}{% end %}
+	            </div>
+	        </div>
+	        <footer>
+	            {% block footer %}
+	               
+	            {% end %}
+	        </footer>
+	    </div>
+	    <script src="{{ static_url("js/script.js") }}"></script>
+	 </body>
+</html>
+
+

@@ -1,0 +1,37 @@
+{% extends "main.html" %}
+
+{% block title %}
+    Module检索
+{% end %}
+
+
+{% block body %}
+<div style="margin-bottom: 0 20px 20px 20px" width="100%">
+	<a class="bth bth-default" href="/module/create">添加</a>
+	<div id="resultDiv" style="height: 400px">
+		<table class="table table-striped" style="background-color: white">
+			<thead>
+				<tr>
+					<td>模块名</td>
+					<td>模块代码</td>
+					<td>所属工程</td>
+				</tr>
+			</thead>
+			<tbody>				
+	        	{% for each in moduleList %}
+					<tr>
+						<td>{{ each.name }}</td>
+						<td>{{ each.code }}</td>
+						<td>{{ each.project_code }}</td>
+		        		<td>
+		        			<a class="bth bth-default" href="/module/delete?id={{each.code}}">删除</a>
+		        			<a class="bth bth-default" href="/module/edit?id={{each.code}}">编辑</a>
+		        			<!-- <a class="bth bth-default" href="/api/detail?id={{each.name}}">详情</a> -->
+		        		</td>									        		
+	        		</tr>
+	        	{% end %}
+			</tbody>
+		</table>
+	</div>      
+</div>
+{% end %}

@@ -1,0 +1,62 @@
+{% extends "main.html" %}
+
+{% block title %}
+    Project编辑
+{% end %}
+
+{% block body %}
+    <div style="margin: 0 auto; width: 520px">
+		<form id="registerForm" class="form-horizontal" action="/project/editSave" method="post">
+		  <div class="form-group">
+		    <label for="" class="col-sm-2 control-label">工程名</label>
+			    <div class="col-sm-5">
+					<input type="" class="form-control" name="projectName"  value={{projectDetail.name}}>
+			    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="" class="col-sm-2 control-label">工程代码</label>
+		    <div class="col-sm-5">
+				<input type="" class="form-control" name="projectCode" readonly value={{projectDetail.code}}>
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="" class="col-sm-2 control-label">工程上下文</label>
+		    <div class="col-sm-5">
+				<input type="" class="form-control" name="projectContext"  value={{projectDetail.context}}>
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="" class="col-sm-2 control-label">生产环境地址</label>
+		    <div class="col-sm-3">
+				<select name="projectProEnvi" class="form-control" title="如不存在工程，请先构建工程">
+		            {% for each in environmentList %}
+		            <option>{{ each.name }}</option>
+		            {% end %}					
+				</select>
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="" class="col-sm-2 control-label">测试环境地址</label>
+		    <div class="col-sm-3">
+				<select name="projectTestEnvi" class="form-control" title="如不存在工程，请先构建工程">
+		            {% for each in environmentList %}
+		            <option>{{ each.name }}</option>
+		            {% end %}					
+				</select>
+		    </div>
+		  </div>		  
+		  <div class="form-group">
+		  	<div class="container">
+		    <div class="col-sm-offset-2 col-sm-8">
+			    <div class="row">
+			    	<button type = "submit" id="registerSaveA" class="btn btn-primary">确定修改</button>
+			    	<a id="registerCancleA" class="btn btn-primary">取消</a>
+			    </div>
+		    </div>
+		  </div>
+		</form>        
+     </div>
+{% end %}
+
+
+		
